@@ -14,10 +14,12 @@
         };
     }
 
-    formController.$inject = [];
+    formController.$inject = ['sentiment'];
 
-    function formController(alchemy) {
+    function formController(sentiment) {
         var vm = this;
-        vm.test = 'test'
+        vm.getEntities = function () {
+            sentiment.analyze(debate08);
+        }
     }
 })();

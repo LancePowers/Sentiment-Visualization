@@ -5,23 +5,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.0-rc2/angular-material.css">
 </head>
 
 <body>
-    <ng-include src = "/components/form/form-view.html"></ng-include>
-    <formView>{{vm.test}}</formView>
-    
-<!--
+
+    <form-view></form-view>
+    <sentiment></sentiment>
+
+
     <script src="js/debate08.js"></script>
     <script src="js/debate15.js"></script>
-    <script src="js/main.js"></script>
--->
+    <!--   <script src="js/main.js"></script>-->
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+    <script src="https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.0-rc2/angular-material.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-messages.min.js"></script>
+
     <script src="app.modules.js"></script>
     <script src="components/component.module.js"></script>
     <script src="components/form/form.module.js"></script>
     <script src="components/form/form.directive.js"></script>
+    <script src="components/services/sentiment.router.js"></script>
+    <script src="components/services/sentiment.parse.js"></script>
+    <script src="components/sentiment/sentiment.module.js"></script>
+    <script src="components/sentiment/sentiment.directive.js"></script>
 </body>
 
 </html>

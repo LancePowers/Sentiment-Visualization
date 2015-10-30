@@ -1,8 +1,10 @@
-
-  <form name="candidateInfo">
-    <label for="singleSelect"> Single select: </label><br>
-    <select name="singleSelect" ng-model="data.singleSelect">
-      <option value="option-1">Option 1</option>
-      <option value="option-2">Option 2</option>
-    </select><br>
-  </form>
+<form name="candidateInfo">
+    <label for="singleSelect"> Single select: </label>
+    <br>
+    <select name="singleSelect" ng-model="vm.singleSelect">
+        <option value="option-1">Option 1</option>
+        <option value="option-2">Option 2</option>
+    </select>
+    <br>
+    <button class="btn btn-med btn-success" ng-click="vm.getEntities()">Go!</button>
+</form>

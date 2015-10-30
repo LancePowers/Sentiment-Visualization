@@ -1,14 +1,13 @@
-// A sentiment is a p5 illustration element with size === relevance, color === sentiment and name === keyword. 
-
+// A sentiment is a p5 illustration element with size === relevance, color === sentiment and name === label. 
 (function () {
     'use strict ';
     angular.module('app.components.sentiment')
-        .directive('gsSentiment', sentimentDirective);
+        .directive('sentiment', sentimentDirective);
 
     function sentimentDirective() {
         return {
             restrict: 'E',
-            templateUrl: 'app/components/sentiment/sentiment.html',
+            templateUrl: 'components/sentiment/sentiment.html',
             scope: {},
             controller: sentimentController,
             controllerAs: 'vm',
@@ -16,27 +15,10 @@
         };
     }
 
-    sentimentController.$inject = ['alchemy'];
+    sentimentController.$inject = ['parse'];
 
-    function sentimentController(alchemy) {
+    function sentimentController(parse) {
         var vm = this;
-
-        vm.people = [];
-
-        vm.activate = activate;
-
-        function activate() {
-            getPeople();
-        }
-
-        function getPeople() {
-            return alchemy.analyze(text)
-                .then(function (data) {
-                    vm.people = data;
-                    logger.info('Activated People Grid');
-                    return vm.people;
-                });
-        }
-
+        vm.entities = parse.entities;
     }
 })();

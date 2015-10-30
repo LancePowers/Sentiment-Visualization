@@ -25,12 +25,16 @@
         }
 
         function createSize(r) {
-            if (r < 0.8) {
+            if (r < 0.6) {
                 return 1;
-            } else if (r < 0.9) {
+            } else if (r < 0.7) {
                 return 2;
-            } else {
+            } else if (r < 0.8) {
                 return 3;
+            } else if (r < 0.9) {
+                return 4;
+            } else {
+                return 5;
             }
         }
 

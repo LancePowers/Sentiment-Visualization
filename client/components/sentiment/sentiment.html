@@ -2,9 +2,9 @@
     <md-content layout-padding>
         <md-grid-list md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
             <md-grid-tile ng-repeat="entity in vm.entities" ng-style="{
-            'background': {{entity.color}}
+            'background-color': '{{entity.color}}'
           }" md-colspan-gt-sm="{{entity.size}}" md-rowspan-gt-sm="{{entity.size}}">
-                <h2>{{entity.label}}</h2> </md-grid-tile>
+                {{entity.label}} </md-grid-tile>
         </md-grid-list>
     </md-content>
 </div>

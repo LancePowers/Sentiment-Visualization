@@ -3,7 +3,8 @@
 
     angular.module('app', [
         'app.components',
-        'ngRoute'
+        'ngRoute',
+        'ngMaterial'
     ]);
 
 })();

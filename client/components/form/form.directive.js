@@ -18,8 +18,12 @@
 
     function formController(sentiment) {
         var vm = this;
+        vm.hideForm = false;
         vm.getEntities = function () {
-            sentiment.analyze(debate08);
+            console.log(vm.singleSelect);
+            sentiment.analyze(vm.singleSelect);
+            vm.hideForm = true;
+            vm.btn = true;
         }
     }
 })();

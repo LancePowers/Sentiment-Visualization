@@ -18,7 +18,7 @@ router.post('/analysis', function (req, res) {
             }
         },
         function (err, response) {
-            res.send(response);
+            res.send(response.body);
         })
 
 })

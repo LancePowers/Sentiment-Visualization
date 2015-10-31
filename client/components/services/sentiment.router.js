@@ -10,21 +10,44 @@
 
     function sentiment($http, parse) {
 
-        function analyzeText(text) {
-            console.log(text)
-            var req = {
-                method: 'POST',
-                url: 'http://127.0.0.1:3000/api/analysis',
-                data: {
-                    text: text
+        function parseDebate(candidate, debate) {
+            var candidateComments = [];
+            var comments = debate.split('\n');
+
+            for (var i = 0; i < comments.length; i++) {
+                if (comments[i].indexOf(candidate) !== -1) {
+                    var start = candidate.length + comments[i].indexOf(candidate);
+                    var comment = comments[i].slice(start, -1);
+                    console.log(comment);
+                    candidateComments.push(comment);
                 }
             }
-            console.log(req)
-            $http(req)
-                .then(function (response) {
-                    console.log(response.data)
-                    parse.handle(sampleResponse);
-                })
+            return candidateComments;
+        }
+
+        function analyzeText(text) {
+            if (text === '08') {
+                var debate = debate08;
+            } else if (text === '15') {
+                var debate = debate15;
+            }
+            var comments = parseDebate('CLINTON:', debate);
+            console.log(comments)
+            for (var i = 0; i < comments.length; i++) {
+                var req = {
+                    method: 'POST',
+                    url: 'http://127.0.0.1:3000/api/analysis',
+                    data: {
+                        text: comments[i]
+                    }
+                }
+                console.log(req)
+                $http(req)
+                    .then(function (response) {
+
+                        parse.handle(response);
+                    })
+            }
         }
 
         return {

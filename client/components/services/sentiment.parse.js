@@ -13,19 +13,29 @@
         var entities = [];
 
         function handle(response) {
-            response.entities.forEach(function (entity) {
-                if (entity.sentiment.type === 'negative' || 'positive')
+            console.log(response)
+            response.data.entities.forEach(function (entity) {
+                if (entity.sentiment.type === 'negative' || entity.sentiment.type === 'positive') {
                     entities.push({
                         label: entity.text,
                         size: createSize(entity.relevance),
                         color: createColor(entity.sentiment.type, entity.sentiment.score)
                     });
+                }
             });
             console.log(entities)
         }
 
         function createSize(r) {
-            if (r < 0.6) {
+            if (r < 0.2) {
+                return 1;
+            } else if (r < 0.3) {
+                return 2;
+            } else if (r < 0.4) {
+                return 3;
+            } else if (r < 0.5) {
+                return 4;
+            } else if (r < 0.6) {
                 return 1;
             } else if (r < 0.7) {
                 return 2;

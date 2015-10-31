@@ -4,7 +4,8 @@
             <md-grid-tile ng-repeat="entity in vm.entities" ng-style="{
             'background-color': '{{entity.color}}'
           }" md-colspan-gt-sm="{{entity.size}}" md-rowspan-gt-sm="{{entity.size}}">
-                {{entity.label}} </md-grid-tile>
+                <label>{{entity.label}}</label>
+            </md-grid-tile>
         </md-grid-list>
     </md-content>
 </div>

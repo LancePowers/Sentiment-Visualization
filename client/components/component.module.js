@@ -3,7 +3,8 @@
 
     angular.module('app.components', [
         'app.components.form',
-        'app.components.sentiment'
+        'app.components.sentiment',
+        'app.components.spout'
     ]);
 
 })();

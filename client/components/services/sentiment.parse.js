@@ -68,27 +68,3 @@
     };
 
 }())
-
-
-//
-//
-//
-//app.factory('parse', function () {
-//    function parseDebate(candidate, debate) {
-//        var candidateComments = [];
-//        var comments = debate.split('\n');
-//        for (var i = 0; i < comments.length; i++) {
-//            if (comments[i].indexOf(candidate) !== -1) {
-//                var start = candidate.length + comments[i].indexOf(candidate);
-//                var comment = comments[i].slice(start, -1);
-//                console.log(comment);
-//                candidateComments.push(comment);
-//            }
-//        }
-//        return candidateComments;
-//    }
-//    return {
-//        parse: function () {};
-//    }
-//
-//})

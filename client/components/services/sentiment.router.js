@@ -6,9 +6,9 @@
         .module('app')
         .factory('sentiment', sentiment);
 
-    sentiment.$inject = ['$http', 'parse']
+    sentiment.$inject = ['$http', 'parse', 'parseP5']
 
-    function sentiment($http, parse) {
+    function sentiment($http, parse, parseP5) {
 
         function parseDebate(candidate, debate) {
             var candidateComments = [];
@@ -44,7 +44,7 @@
                 console.log(req)
                 $http(req)
                     .then(function (response) {
-
+                        parseP5.handle(response);
                         parse.handle(response);
                     })
             }

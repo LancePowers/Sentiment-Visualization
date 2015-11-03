@@ -20,11 +20,5 @@
         var vm = this;
         vm.test = 'test';
         vm.p5 = new p5(spoutP5.sketch);
-//        vm.entities = spoutP5.
-     //        vm.setColor = spoutP5.setColor({
-     //            r: 200,
-     //            g: 10,
-     //            b: 10
-     //        })
     }
 })();

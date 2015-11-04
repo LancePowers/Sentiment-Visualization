@@ -31,7 +31,7 @@
             for (var i = 0; i < comments.length; i++) {
                 var req = {
                     method: 'POST',
-                    url: 'http://127.0.0.1:3000/api/analysis',
+                    url: 'https://spout-about.herokuapp.com/api/analysis',
                     data: {
                         text: comments[i]
                     }

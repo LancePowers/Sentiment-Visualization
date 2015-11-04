@@ -3,10 +3,10 @@ var router = express.Router();
 var request = require('request');
 //var config = require('../_config.js')
 
-console.log(config.ALCHEMY_KEY);
+
 
 router.post('/analysis', function (req, res) {
-    console.log(req.body.text)
+
 
     request.post('http://access.alchemyapi.com/calls/text/TextGetRankedNamedEntities', {
             form: {

@@ -136,15 +136,15 @@
                 this.setImage('http://d229l5sflpl9cp.cloudfront.net/canphoto/2569_lg.jpg')
                 break;
             case "WEBB":
-                this.setImage('http://gainesvillescene.com/wp-content/uploads/2015/08/Jim-Webb-300x300.jpg')
+                this.setImage('https://gainesvillescene.com/wp-content/uploads/2015/08/Jim-Webb-300x300.jpg')
                 break;
             case "SANDERS":
-                this.setImage('http://blurbrain.com/wp-content/uploads/2015/03/Bernie-Sanders.jpg')
+                this.setImage('https://blurbrain.com/wp-content/uploads/2015/03/Bernie-Sanders.jpg')
                 break;
             case "O’ MALLEY":
-                this.setImage('http://absolutecosplay.com/wp-content/uploads/2015/07/14366448254441-martin-omalley-300x300.jpg')
+                this.setImage('https://absolutecosplay.com/wp-content/uploads/2015/07/14366448254441-martin-omalley-300x300.jpg')
             default:
-                this.setImage('http://www.officeplayground.com/Assets/ProductPreview/pi2700-2899/2762_flagball_1b.jpg')
+                this.setImage('https://www.officeplayground.com/Assets/ProductPreview/pi2700-2899/2762_flagball_1b.jpg')
             }
         }
         return {

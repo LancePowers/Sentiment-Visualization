@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-var config = require('../_config.js')
+//var config = require('../_config.js')
 
 console.log(config.ALCHEMY_KEY);
 

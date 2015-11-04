@@ -18,5 +18,6 @@
 
     function candidateController() {
         var vm = this;
+        vm.candidates = ['CHAFEE', 'WEBB', 'O’MALLEY', 'SANDERS', 'CLINTON']
     }
 })()

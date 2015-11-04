@@ -20,7 +20,6 @@
         var vm = this;
         vm.hideForm = false;
         vm.getEntities = function () {
-            console.log(vm.singleSelect);
             sentiment.analyze(vm.singleSelect);
             vm.hideForm = true;
             vm.btn = true;

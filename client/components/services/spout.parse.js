@@ -12,17 +12,17 @@
 
         var entities = [];
 
-        function handle(response) {
-            console.log(response)
+        function handle(response, spout, candidate) {
             response.data.entities.forEach(function (entity) {
                 if (entity.sentiment.type === 'negative' || entity.sentiment.type === 'positive') {
                     entities.push({
+                        candidate: candidate,
                         label: entity.text,
                         color: createColor(entity.sentiment.type)
                     });
                 }
             });
-            console.log(entities)
+            spout.setEntities(entities);
         }
 
         function createColor(type) {
@@ -43,8 +43,8 @@
         }
 
         return {
-            handle: function (text) {
-                return handle(text);
+            handle: function (response, spout, candidate) {
+                return handle(response, spout, candidate);
             },
             entities: entities
         }

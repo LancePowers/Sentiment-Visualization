@@ -11,7 +11,7 @@ router.post('/analysis', function (req, res) {
 
     request.post('http://access.alchemyapi.com/calls/text/TextGetRankedNamedEntities', {
             form: {
-                apikey: config.ALCHEMY_KEY,
+                apikey: (process.env.KEY || config.ALCHEMY_KEY),
                 sentiment: 1,
                 text: req.body.text,
                 outputMode: 'json'

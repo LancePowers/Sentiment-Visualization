@@ -36,6 +36,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 
 // *** main routes *** //
+app.use('/', '../client/index.html');
 app.use('/api/', routes);
 
 

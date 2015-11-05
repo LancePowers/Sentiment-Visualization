@@ -5,6 +5,5 @@
         'app.components',
         'ngRoute',
         'ngMaterial'
-    ]);
-
+    ])
 })();

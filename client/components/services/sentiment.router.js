@@ -45,7 +45,7 @@
 
         return {
             analyze: function (candidate, spout) {
-                return analyzeText(candidate, spout);
+                return analyzeText(candidate.name, spout);
             },
         }
 

@@ -10,13 +10,14 @@
 
     function spoutP5(parseP5) {
         function Spout(candidate) {
+
             var color = {
                 r: 10,
                 g: 200,
                 b: 10
             }
-            this.candidate = candidate;
-            var image = '';
+
+            this.candidate = JSON.parse(candidate);
             var word = 'Word';
             this.entities = [];
             this.index = 0;
@@ -28,13 +29,11 @@
             this.setWord = function (newWord) {
                 word = newWord;
             }
-            this.setImage = function (newImage) {
-                image = newImage;
-            }
+
             var show = true;
             var self = this;
             setInterval(function () {
-                if (self.entities[self.index].candidate === self.candidate) {
+                if (self.entities[self.index].candidate === self.candidate.name) {
                     show = true;
                 } else {
                     show = false;
@@ -49,9 +48,9 @@
                 p.system;
 
                 p.setup = function () {
-                    p.createCanvas(400, 400);
-                    p.system = new p.ParticleSystem(p.createVector(p.width / 2, 250));
-                    p.img = p.loadImage(image);
+                    p.createCanvas(400, 400).parent('spoutContainer');
+                    p.system = new p.ParticleSystem(p.createVector(self.candidate.position.x, self.candidate.position.y));
+                    p.img = p.loadImage(self.candidate.image);
                 }
                 p.draw = function () {
                     p.background(p.img);
@@ -125,28 +124,6 @@
             this.entities = entities;
         }
 
-        Spout.prototype.setCandidate = function (candidate) {
-
-
-            switch (candidate) {
-            case "CLINTON":
-                this.setImage('http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTE4MDAzNDEwMDU4NTc3NDIy.jpg')
-                break;
-            case "CHAFEE":
-                this.setImage('http://d229l5sflpl9cp.cloudfront.net/canphoto/2569_lg.jpg')
-                break;
-            case "WEBB":
-                this.setImage('https://gainesvillescene.com/wp-content/uploads/2015/08/Jim-Webb-300x300.jpg')
-                break;
-            case "SANDERS":
-                this.setImage('https://blurbrain.com/wp-content/uploads/2015/03/Bernie-Sanders.jpg')
-                break;
-            case "O’ MALLEY":
-                this.setImage('https://absolutecosplay.com/wp-content/uploads/2015/07/14366448254441-martin-omalley-300x300.jpg')
-            default:
-                this.setImage('https://www.officeplayground.com/Assets/ProductPreview/pi2700-2899/2762_flagball_1b.jpg')
-            }
-        }
         return {
             Spout: Spout
         }

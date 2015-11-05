@@ -18,11 +18,9 @@
 
     function formController(sentiment) {
         var vm = this;
-        vm.hideForm = false;
-        vm.getEntities = function () {
-            sentiment.analyze(vm.singleSelect);
-            vm.hideForm = true;
-            vm.btn = true;
+        vm.hideCandidate = true;
+        vm.toggleHide = function () {
+            vm.hideCandidate = false;
         }
     }
 })();

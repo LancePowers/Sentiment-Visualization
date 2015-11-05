@@ -1,15 +1,4 @@
 <md-content md-padding layout="row" layout-align="center end">
-    <form style="margin-top: 20%;" name="candidateInfo" ng-hide="vm.hideForm">
-        <md-input-container class="center">
-
-            <label for="singleSelect"> Choose a Debate: </label>
-            <br>
-            <md-select name="singleSelect" ng-model="vm.singleSelect">
-                <md-option ng-click="vm.btn = true" value="08">2008</md-option>
-                <md-option ng-click="vm.btn = true" value="15">2015</md-option>
-            </md-select>
-            <br>
-            <md-button class="md-raised md-fab" align="center center" ng-click="vm.getEntities()" ng-show="vm.btn">Go!</md-button>
-        </md-input-container>
-    </form>
+    <candidate ng-hide="vm.hideCandidate"></candidate>
+    <md-button class="md-raised md-fab" align="center center" ng-click="vm.toggleHide()" ng-show="vm.hideCandidate">Go!</md-button>
 </md-content>

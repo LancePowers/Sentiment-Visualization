@@ -31,7 +31,7 @@
                 var id = candidate.name + i;
                 var req = {
                     method: 'POST',
-                    url: 'http://spout-about.herokuapp.com/api/analysis',
+                    url: 'https://spout-about.herokuapp.com/api/analysis',
                     data: {
                         id: id,
                         text: comments[i]

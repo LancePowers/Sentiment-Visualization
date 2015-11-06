@@ -36,7 +36,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
 // *** mongoose *** ///
-mongoose.connect((config.mongoURI.test || process.env.MONGOLAB_URI), function (err, res) {
+mongoose.connect((process.env.MONGOLAB_URI), function (err, res) {
     if (err) {
         console.log('Error connecting to the database. ' + err);
     } else {

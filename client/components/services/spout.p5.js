@@ -16,9 +16,8 @@
                 g: 200,
                 b: 10
             }
-
             this.candidate = JSON.parse(candidate);
-            var word = 'Word';
+            var word = 'Hello';
             this.entities = [];
             this.index = 0;
 
@@ -42,7 +41,7 @@
 
                 self.setWord(self.entities[self.index].label);
                 self.index++;
-            }, 3000);
+            }, 2000);
 
             this.sketch = function (p) {
                 p.system;

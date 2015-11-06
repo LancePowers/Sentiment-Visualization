@@ -1,6 +1,6 @@
 <div layout="row" layout-align="space-around center" ng-hide="vm.showCandidate" ng-style="{'min-height': '400px'}">
     <md-button class="md-raised md-fab" align="center center" ng-click="vm.toggleHide()">Go!</md-button>
 </div>
-<div ng-repeat="candidate in vm.candidates" ng-show=vm.showCandidate>
+<div layout="row" layout-align="space-around center" ng-repeat="candidate in vm.candidates" ng-show=vm.showCandidate>
     <spout class="{{candidate}}" id="spoutContainer"></spout>
 </div>

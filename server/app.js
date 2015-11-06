@@ -7,8 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var swig = require('swig');
-var config = require('./_config.js');
-
+//var config = require('./_config.js');
 // *** routes *** //
 var routes = require('./routes/index.js');
 
@@ -36,8 +35,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
-console.log(config.mongoURI.test)
-    // *** mongoose *** ///
+// *** mongoose *** ///
 mongoose.connect((config.mongoURI.test || process.env.MONGOLAB_URI), function (err, res) {
     if (err) {
         console.log('Error connecting to the database. ' + err);

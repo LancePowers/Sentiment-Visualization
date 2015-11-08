@@ -2,5 +2,5 @@
     <md-button class="md-raised md-fab" align="center center" ng-click="vm.toggleHide()">Go!</md-button>
 </div>
 <div layout="row" layout-align="space-around center" ng-repeat="candidate in vm.candidates" ng-show=vm.showCandidate>
-    <spout class="{{candidate}}" id="spoutContainer"></spout>
+    <spout ng-style="{'background-image':'url({{vm.candidate.image}})'}" class="{{candidate}}" id="spoutContainer"></spout>
 </div>

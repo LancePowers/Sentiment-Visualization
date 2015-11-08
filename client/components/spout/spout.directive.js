@@ -12,7 +12,7 @@
             controllerAs: 'vm',
             bindToController: true,
             link: function (scope, element, attrs, controllers) {
-                vm.background = JSON.parse(attrs.class).image;
+                controllers.background = JSON.parse(attrs.class).image;
                 controllers.getEntities(attrs.class);
 
             },

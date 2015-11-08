@@ -12,6 +12,7 @@
             controllerAs: 'vm',
             bindToController: true,
             link: function (scope, element, attrs, controllers) {
+                vm.background = JSON.parse(attrs.class).image;
                 controllers.getEntities(attrs.class);
 
             },
@@ -22,7 +23,6 @@
 
     function spoutController(parse, spoutP5, sentiment) {
         var vm = this;
-
         vm.getEntities = function (candidate) {
             vm.spout = new spoutP5.Spout(candidate);
             sentiment.analyze(candidate, vm.spout);

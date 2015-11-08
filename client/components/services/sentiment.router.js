@@ -11,6 +11,7 @@
     function sentiment($http, parse, parseP5) {
 
         function parseDebate(candidate, debate) {
+            var debate = debate.replace(/./g, '. ');
             var candidateComments = [];
             var comments = debate.split('\n');
 

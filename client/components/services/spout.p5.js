@@ -17,7 +17,7 @@
                 b: 10
             }
             this.candidate = JSON.parse(candidate);
-            var word = 'Hello';
+            var word = '';
             this.entities = [];
             this.index = 0;
 
@@ -32,6 +32,8 @@
             var show = true;
             var self = this;
             setInterval(function () {
+                self.entities[self.index];
+                self.candidate.name;
                 if (self.entities[self.index].candidate === self.candidate.name) {
                     show = true;
                 } else {

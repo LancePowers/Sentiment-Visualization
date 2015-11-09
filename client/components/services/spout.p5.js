@@ -31,9 +31,12 @@
 
             var show = true;
             var self = this;
+
             setInterval(function () {
-                console.log(self.entities[self.index]);
-                console.log(self.candidate.name);
+                console.log(self.entities, self.index);
+                if (!self.entities.length) {
+                    return
+                }
                 if (self.entities[self.index].candidate === self.candidate.name) {
                     show = true;
                 } else {
@@ -43,7 +46,7 @@
 
                 self.setWord(self.entities[self.index].label);
                 self.index++;
-            }, 1000);
+            }, 100);
 
             this.sketch = function (p) {
                 p.system;

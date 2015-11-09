@@ -19,9 +19,9 @@
         };
     }
 
-    spoutController.$inject = ['parse', 'spoutP5', 'sentiment'];
+    spoutController.$inject = ['spoutP5', 'sentiment'];
 
-    function spoutController(parse, spoutP5, sentiment) {
+    function spoutController(spoutP5, sentiment) {
         var vm = this;
         vm.getEntities = function (candidate) {
             vm.spout = new spoutP5.Spout(candidate);

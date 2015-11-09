@@ -10,6 +10,7 @@ var swig = require('swig');
 //var config = require('./_config.js');
 // *** routes *** //
 var routes = require('./routes/index.js');
+require('dotenv').load();
 
 
 // *** express instance *** //

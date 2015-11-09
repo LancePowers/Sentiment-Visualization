@@ -8,8 +8,6 @@ var mongoose = require('mongoose-q')(require('mongoose'), {
 var Comment = require('../data/comment.js');
 
 
-
-
 router.post('/analysis', function (req, res) {
     Comment.findQ({
             id: req.body.id

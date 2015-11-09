@@ -13,7 +13,6 @@
         var entities = [];
 
         function handle(response, spout, candidate) {
-            console.log(response.data)
             response.data.entities.forEach(function (entity) {
                 if (entity.sentiment.type === 'negative' || entity.sentiment.type === 'positive') {
                     entities.push({

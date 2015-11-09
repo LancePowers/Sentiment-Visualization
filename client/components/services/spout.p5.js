@@ -32,8 +32,8 @@
             var show = true;
             var self = this;
             setInterval(function () {
-                self.entities[self.index];
-                self.candidate.name;
+                console.log(self.entities[self.index]);
+                console.log(self.candidate.name);
                 if (self.entities[self.index].candidate === self.candidate.name) {
                     show = true;
                 } else {

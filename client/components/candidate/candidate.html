@@ -1,6 +1,21 @@
-<div layout="row" layout-align="space-around center" ng-hide="vm.showCandidate" ng-style="{'min-height': '400px'}">
-    <md-button class="md-raised md-fab" align="center center" ng-click="vm.toggleHide()">Go!</md-button>
+<div ng-hide=vm.showCandidate>
+    <div layout="row" layout-align="center end" class="candidate-display">
+        <h2 align="center center">Spout About</h2>
+    </div>
+    <div layout="row" layout-align="center center" class="candidate-display">
+        <md-button class="md-raised md-fab" ng-click="vm.toggleHide()">Go!</md-button>
+    </div>
+    <div layout="row" layout-align="center start" flex="35" flex-offset="33">
+        <div class="md-body-1">Spout About uses custom angular directives and factories to retrieve keywords from <a href="http://www.alchemyapi.com/products/demo/alchemylanguage">IBM/Alchemy API's entity extraction service</a>. It utilizes the <a href="http://p5js.org/">p5.js</a> visualization library to create a color coded particle simulator using the machine perceived sentiment associated with the extracted keywords in a positive or negative context. Enjoy!</div>
+    </div>
 </div>
-<div layout="row" layout-align="space-around center" ng-repeat="candidate in vm.candidates" ng-show=vm.showCandidate>
-    <spout class="{{candidate}}" id="spoutContainer"></spout>
+
+<div layout="column" layout-align="center center" ng-show=vm.showCandidate>
+    <h1>2015 DNC Debate</h1>
+    <div ng-repeat="candidate in vm.candidates" class="candidate-display">
+        <div>
+            <spout class="{{candidate}}" id="spoutContainer"></spout>
+        </div>
+    </div>
+
 </div>

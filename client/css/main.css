@@ -6,3 +6,8 @@ body {
 a {
     color: #00B7FF;
 }
+
+.candidate-display {
+    min-height: 100px;
+    margin-top: 30px;
+}

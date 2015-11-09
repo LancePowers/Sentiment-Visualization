@@ -41,7 +41,7 @@
 
                 self.setWord(self.entities[self.index].label);
                 self.index++;
-            }, 500);
+            }, 1000);
 
             this.sketch = function (p) {
                 p.system;

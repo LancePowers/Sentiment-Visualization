@@ -29,7 +29,7 @@
             var comments = parseDebate(candidate.name, debate15);
             var index = 0;
             setInterval(function () {
-                for (var i = index; i < index + 10; i++) {
+                for (var i = index; i < 10; i++) {
                     var id = candidate.name + i;
                     var req = {
                         method: 'POST',

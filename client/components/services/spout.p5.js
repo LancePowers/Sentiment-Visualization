@@ -10,6 +10,7 @@
 
     function spoutP5(parseP5) {
         function Spout(candidate) {
+            console.log(candidate)
 
             var color = {
                 r: 10,
@@ -33,10 +34,10 @@
             var self = this;
 
             setInterval(function () {
-                console.log(self.entities, self.index);
                 if (!self.entities.length) {
                     return
                 }
+                console.log(self.entities.length)
                 if (self.entities[self.index].candidate === self.candidate.name) {
                     show = true;
                 } else {
@@ -46,7 +47,7 @@
 
                 self.setWord(self.entities[self.index].label);
                 self.index++;
-            }, 100);
+            }, 750);
 
             this.sketch = function (p) {
                 p.system;
@@ -61,7 +62,7 @@
                     if (show) {
                         p.system.addParticle();
                         p.system.run();
-                        p.textSize(32);
+                        p.textSize(24);
                         p.fill(255, 255, 255);
                         p.text(word, 10, 60);
                     }

@@ -11,7 +11,8 @@
 </div>
 
 <div layout="column" layout-align="center center" ng-show=vm.showCandidate>
-    <h1>2015 DNC Debate</h1>
+    <div layout="row">
+        <h1>2015 DNC Debate</h1></div>
     <div ng-repeat="candidate in vm.candidates" class="candidate-display">
         <div>
             <spout class="{{candidate}}" id="spoutContainer"></spout>

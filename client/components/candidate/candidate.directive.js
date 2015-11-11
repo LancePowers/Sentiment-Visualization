@@ -21,7 +21,6 @@
         vm.showCandidate = false;
         vm.toggleHide = function () {
             vm.showCandidate = true;
-
             vm.candidates = [{
                 name: 'CHAFEE',
                 image: '/img/CHAFEE.png',

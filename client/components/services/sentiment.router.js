@@ -33,7 +33,7 @@
                 var id = candidate.name + i;
                 var req = {
                     method: 'POST',
-                    url: 'http://localhost:3000/api/analysis',
+                    url: '/api/analysis',
                     data: {
                         id: id,
                         text: comments[i]
@@ -41,6 +41,7 @@
                 }
                 $http(req)
                     .then(function (response) {
+                        console.log(response.config.data.id);
                         parseP5.handle(response, spout, candidate.name);
                     })
             }

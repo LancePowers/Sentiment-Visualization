@@ -37,7 +37,7 @@
                 if (!self.entities.length) {
                     return
                 }
-                console.log(self.entities.length)
+
                 if (self.entities[self.index].candidate === self.candidate.name) {
                     show = true;
                 } else {

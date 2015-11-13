@@ -14,10 +14,11 @@
         };
     }
 
-    candidateController.$inject = [];
+    candidateController.$inject = ['sentiment'];
 
-    function candidateController() {
+    function candidateController(sentiment) {
         var vm = this;
+        sentiment.analyze();
         vm.showCandidate = false;
         vm.toggleHide = function () {
             vm.showCandidate = true;

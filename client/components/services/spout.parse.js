@@ -11,18 +11,31 @@
     function parseP5() {
 
         var entities = [];
+        var inProgress = false;
+        var index = 0;
+        var activeComment = {};
 
-        function handle(response, spout, candidate) {
+        function handle(response) {
             response.data.entities.forEach(function (entity) {
                 if (entity.sentiment.type === 'negative' || entity.sentiment.type === 'positive') {
                     entities.push({
-                        candidate: candidate,
-                        label: entity.text,
+                        candidate: response.config.data.candidate,
+                        word: entity.text,
                         color: createColor(entity.sentiment.type)
                     });
                 }
             });
-            spout.setEntities(entities);
+            if (!inProgress) {
+                debateInit();
+            }
+        }
+
+        function debateInit() {
+            setInterval(function () {
+                activeComment = entities[index];
+                index++;
+            }, 750);
+            inProgress = true;
         }
 
         function createColor(type) {
@@ -43,10 +56,12 @@
         }
 
         return {
-            handle: function (response, spout, candidate) {
-                return handle(response, spout, candidate);
+            handle: function (response) {
+                return handle(response);
             },
-            entities: entities
+            activeComment: function () {
+                return activeComment
+            }
         }
 
     };

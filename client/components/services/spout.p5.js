@@ -10,44 +10,23 @@
 
     function spoutP5(parseP5) {
         function Spout(candidate) {
-            console.log(candidate)
-
-            var color = {
-                r: 10,
-                g: 200,
-                b: 10
-            }
-            this.candidate = JSON.parse(candidate);
-            var word = '';
-            this.entities = [];
-            this.index = 0;
-
-            this.setColor = function (newColor) {
-                color = newColor;
-            }
-
-            this.setWord = function (newWord) {
-                word = newWord;
-            }
-
-            var show = true;
             var self = this;
+            this.candidate = JSON.parse(candidate);
+            this.color = parseP5.activeComment().color;
+            this.word = parseP5.activeComment().word;
+            this.show = true;
 
-            setInterval(function () {
-                if (!self.entities.length) {
-                    return
-                }
+            this.updateDisplay = function () {
 
-                if (self.entities[self.index].candidate === self.candidate.name) {
-                    show = true;
+                if (parseP5.activeComment().candidate === self.candidate.name) {
+                    this.show = true;
                 } else {
-                    show = false;
+                    this.show = false;
                 }
-                self.setColor(self.entities[self.index].color);
+                this.color = parseP5.activeComment().color;
+                this.word = parseP5.activeComment().word;
+            }
 
-                self.setWord(self.entities[self.index].label);
-                self.index++;
-            }, 750);
 
             this.sketch = function (p) {
                 p.system;
@@ -59,12 +38,13 @@
                 }
                 p.draw = function () {
                     p.background(p.img);
-                    if (show) {
+                    self.updateDisplay();
+                    if (self.show) {
                         p.system.addParticle();
                         p.system.run();
                         p.textSize(24);
                         p.fill(255, 255, 255);
-                        p.text(word, 10, 60);
+                        p.text(self.word, 10, 60);
                     }
                 }
 
@@ -92,7 +72,7 @@
                 p.Particle.prototype.display = function () {
                     p.stroke(200, this.lifespan);
                     p.strokeWeight(2);
-                    p.fill(color.r, color.g, color.b, this.lifespan);
+                    p.fill(self.color.r, self.color.g, self.color.b, this.lifespan);
                     p.ellipse(this.position.x, this.position.y, 12, 12);
                 };
 
@@ -124,9 +104,6 @@
                     }
                 };
             }
-        }
-        Spout.prototype.setEntities = function (entities) {
-            this.entities = entities;
         }
 
         return {

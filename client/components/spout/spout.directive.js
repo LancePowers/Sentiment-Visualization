@@ -19,13 +19,12 @@
         };
     }
 
-    spoutController.$inject = ['spoutP5', 'sentiment'];
+    spoutController.$inject = ['spoutP5'];
 
-    function spoutController(spoutP5, sentiment) {
+    function spoutController(spoutP5) {
         var vm = this;
         vm.getEntities = function (candidate) {
             vm.spout = new spoutP5.Spout(candidate);
-            sentiment.analyze(candidate, vm.spout);
             vm.p5 = new p5(vm.spout.sketch);
         }
 

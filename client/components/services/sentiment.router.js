@@ -10,39 +10,38 @@
 
     function sentiment($http, parseP5) {
 
-        function parseDebate(candidate, debate) {
-            debate.replace(/./g, '. ');
-            var candidateComments = [];
+        var candidates = ['O’MALLEY', 'CLINTON', 'WEBB', 'SANDERS', 'CHAFEE']
+
+        function parseDebate(debate) {
+            var entities = [];
             var comments = debate.split('\n');
             for (var i = 0; i < comments.length; i++) {
-                if (comments[i].indexOf(candidate) !== -1) {
-                    var start = candidate.length + comments[i].indexOf(candidate);
-                    var comment = comments[i].slice(start, -1);
-                    candidateComments.push(comment);
-                }
+                candidates.forEach(function (candidate) {
+                    if (comments[i].indexOf(candidate) !== -1) {
+                        var text = comments[i].slice(comments[i].indexOf(candidate) + (candidate.length), comments[i].length);
+                        entities.push({
+                            position: i,
+                            text: text,
+                            candidate: candidate
+                        })
+                    }
+                })
             }
-            return candidateComments;
+            return entities;
         }
 
-        function analyzeText(candidate, spout) {
-            candidate = JSON.parse(candidate)
-            var comments = parseDebate(candidate.name, debate15);
-
-
+        function analyzeText() {
+            var comments = parseDebate(debate15);
+            console.log(comments)
             for (var i = 0; i < comments.length; i++) {
-                var id = candidate.name + i;
                 var req = {
                     method: 'POST',
                     url: '/api/analysis',
-                    data: {
-                        id: id,
-                        text: comments[i]
-                    }
+                    data: comments[i]
                 }
                 $http(req)
                     .then(function (response) {
-                        console.log(response.config.data.id);
-                        parseP5.handle(response, spout, candidate.name);
+                        parseP5.handle(response);
                     })
             }
 

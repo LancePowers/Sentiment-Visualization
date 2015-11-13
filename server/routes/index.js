@@ -10,7 +10,7 @@ var Comment = require('../data/comment.js');
 
 router.post('/analysis', function (req, res) {
     Comment.findQ({
-            id: req.body.id
+            id: req.body.position
         })
         .then(function (result, error) {
             if (result.length) {
@@ -28,8 +28,9 @@ router.post('/analysis', function (req, res) {
                     function (err, response) {
                         console.log(response);
                         new Comment({
-                            id: req.body.id,
-                            response: response.body
+                            id: req.body.position,
+                            response: response.body,
+                            candidate: req.body.candidate
                         }).save();
 
                         res.send(response.body);
